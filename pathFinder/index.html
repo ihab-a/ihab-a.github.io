@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="theme/style.css">
+	<title>js path finder by ihab agni</title>
+</head>
+<body>
+	<h1>Path Finder v1.5</h1>
+	<div id="target">
+		<div id="controls">
+			<button id="fullScreen" class="control-btn" onclick="fullScreen()">fullScreen</button>
+			<select id="load" class="control-btn">
+				<option value='0'>custom</option>
+			</select>
+			<button id="wall" class="control-btn" onclick="stateWall()" disabled>wall</button>
+			<button id="start" class="control-btn" onclick="stateStart()">start</button>
+			<button id="end" class="control-btn" onclick="stateEnd()">end</button>
+			<button class="control-btn" onclick="reset()">reset</button>
+			<button id="remove" class="control-btn" onclick="remove()">remove tool</button>
+			<button id="incSpd" class="control-btn" onclick="cardinal.alterSpeed(-100)">+ speed</button>
+			<button id="decSpd" class="control-btn" onclick="cardinal.alterSpeed(100)">- speed</button>
+			<span id="spd">speed : Max</span>
+		</div>
+		<div id="grid"></div>
+	</div>
+	<br>
+	<p>place walls to create a maze, then choose starting and ending positions(unique), the script shall highlight the way from the start to the end avoiding obstacles.</p>
+	<div id="info">
+		<h2>- Components:</h2>
+		<h3>State drop down list :</h3>
+		<p>allows to choose from a set of predefined maze patterns.</p>
+		<h3>Wall :</h3>
+		<p>when selected clicking on a position in the grid converts it to a wall.</p>
+		<h3>Start :</h3>
+		<p>when selected clicking on a position in the grid defines it as the starting position of the path to be found.</p>
+		<h3>End :</h3>
+		<p>when selected clicking on a position in the grid defines it as the end position of the path to be found.</p>
+		<h3>Reset :</h3>
+		<p>Clicking on it wipes all current data.</p>
+		<h3>Remove tool :</h3>
+		<p>After being selected, allows to remove specific positions from the grid.</p>
+		<h3>Speed + and Speed - :</h3>
+		<p>Increases or decreases the lookup speed of the path max is stated as max, FLM uses a different function (more about FLM in <a href='#FLM_tech'>FLM technical description</a>).</p>
+		<p>Some of these can be acheived through keyboard shortcuts <a href="#shortcuts">here</a>.</p>
+		<p align="right">- For technical information refer to the next section.</a></p>
+	</div>
+	<div id="tech">
+		<h2>- Technical info :</h2>
+		<h3>Grid :</h3>
+		<p>The grid is made up of many divs width <span class="var">gridElemSize</span> being the width and height of each one.</p>
+		<p>Based on <span class="var">gridWidth</span> and <span class="var">gridHeight</span> the function <span class="var">createGrid</span> creates a grid in annother division (<span class="var">gridHolder</span>) which is also in annother div to make the grid scrollable</p>
+		<h3>Cardinal : </h3>
+		<p>The <span class="var">cardinal</span> link logical and computational operations to the grid, in the form of js object (cardinal methods and attributes <a href="#cardinal">here</a>).</p>
+		<h3>States : </h3>
+		<p>There are 4 states : <span class="var">0, 1, 2 and 3</span>.</p>
+		<p><span class="var">state 0 :</span> wall creation state, function : <span class="var">stateWall()</span>.</p>
+		<p><span class="var">state 1 :</span> start selection state, function : <span class="var">stateStart()</span>.</p>
+		<p><span class="var">state 2 :</span> end selection state, function : <span class="var">stateEnd()</span>.</p>
+		<p><span class="var">state 3 :</span> remove position state, function : <span class="var">remove()</span>.</p>
+		<p>start and end are unique, states are saved in the variable : <span class="var">state</span>.</p>
+		<h3 id="shortcuts">Keyboard Shortcuts :</h3>
+		<p><span class="var">F</span> : for full screen mode.</p>
+		<p><span class="var">W</span> : for state wall.</p>
+		<p><span class="var">S</span> : for state start.</p>
+		<p><span class="var">E</span> : for state end.</p>
+		<p><span class="var">D</span> : for remove tool.</p>
+		<p><span class="var">R</span> : to reset. </p>
+		<p><span class="var">P</span> : to pause (not compatible width FLM for performance reasons). </p>
+		<p><span class="var">C</span> : to toggle cost debug. </p>
+		<p><span class="var">L</span> : to toggle lookup tracing. </p>
+		<p><span class="var">+</span> : to increase speed. </p>
+		<p><span class="var">-</span> : to decrease speed. </p>
+		<h3>A* search breif explanation :</h3>
+		<p>searches the shortest path by trying to reduce 2 costs : the distance between the current node and the end node, as well as the distance travelled.</p>
+		<p>current node is choosen to be the node with the smallest costs.</p>
+		<h3 id="FLM_tech">FLM description :</h3>
+		<p>Normal lookup (up to max speed) uses <span class="var">setInterval()</span> to make controlling the lookup speed possible, therefore as the <span id="var">Fast Lookup Mode</span> uses a <span class="var">while loop</span>, an efficient pause or speed decrease method cannot be set.</p>
+	</div>
+	<div id="cardinal">
+		<h2>- Cardinal attributes and methodes :</h2>
+		<h3>saveState() :</h3>
+		<p>saves current wall states and writes it to <span class="var">saved</span> div in array format.</p>
+		<h3>loadState() :</h3>
+		<p>loads array to the main grid (1 is wall everything else is ignored).</p>
+		<h3>alterSpeed() :</h3>
+		<p>add <span class="var">amt</span> too <span class="var">cardinal.lookupSpeed</span> (can be negative) and inverts display so that highest becomes faster.</p>
+		<h3>getElem() :</h3>
+		<p>returns the nth element of the <span class="var">cardinal.grid</span>.</p>
+		<h3>getElemXY() :</h3>
+		<p>returns element from <span class="var">cardinal.grid</span> bases on X and Y coordinates.</p>
+		<h3>calCost() :</h3>
+		<p>interface between <span class="var">dist()</span> and <span class="var">cardinal</span> elements.</p>
+		<h3>setMin() :</h3>
+		<p>returns the minimum of a given set's costs.</p>
+		<h3>toPos() :</h3>
+		<p>converts XY to Pos.</p>
+		<h3>toXY() :</h3>
+		<p>converts Pos to XY</p>
+		<h3>findPath() :</h3>
+		<p>uses A* search algorithm to find the shortest path to the end node.</p>
+		<h3>findPathFLM() :</h3>
+		<p>uses FLM.</p>
+		<h3>notification() :</h3>
+		<p>shows a notification in the screen.</p>
+		<h3>notifTime() :</h3>
+		<p>shows the time taken by the algorithm to find the path in a notification.</p>
+	</div>
+	<h3 style="text-align: center">some fuctionnalities may not be stated here.</h3>
+	<h1>Find Path v1.5 02/08/2022</h1>
+	<div id="saved"></div>
+	<div id="notif"></div>
+	<script src="script/script.js"></script>
+	<script src="script/presetMazeStates.js"></script>
+</body>
+</html>

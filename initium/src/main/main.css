@@ -1,0 +1,51 @@
+.main{
+	background-image: url("/asset/image/background_fill.svg");
+	background-size: var(--xxl);
+	background-repeat: round;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding-left: calc(var(--nav-size) + var(--m));
+	padding-top: calc(var(--logo-size) + var(--m));
+	overflow: hidden auto;
+	padding-bottom: 20vh;
+}
+.main .text{
+	max-width: 70%;
+}
+#top-background-image, #contact{
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+}
+#top-background-image{
+	height: 140%;
+	z-index: -20;
+	position: absolute;
+	background-image: url("/asset/image/top_background.png");
+	background-size: contain cover;
+	top: calc(-1 * var(--nav-size));
+	right: 0;
+	width: calc(60% - var(--nav-size));
+	max-width: 100%;
+	background-position: 100% 0;
+}
+#contact{
+	position: relative;
+	left: 0;
+	right: 0;
+	margin: auto;
+	clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+	background-color: var(--color-a);
+	bottom: 0;
+	left: 0;
+	width: 90%;
+}
+@media (max-width: 1080px){
+	.main{
+		padding-left: var(--m);
+	}
+	#top-background-image{
+		width: 100%;
+	}
+}

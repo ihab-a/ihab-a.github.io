@@ -1,0 +1,38 @@
+.text-normal{
+	font-family: sans-serif;
+	font-size: var(--l);
+}
+.text-normal-big{
+	font-family: sans-serif;
+	font-size: var(--xl);
+}
+.text-featured, .text-title{
+	margin: var(--xl) 0;
+	-webkit-text-stroke: 1px var(--color-p);
+	font-weight: 700;
+	color: var(--color-a);
+}
+.text-featured{
+	font-size: var(--xxxl);
+}
+.text-title{
+	font-size: var(--xxl);
+}
+.text-link{
+	font-weight: bold;
+	color: var(--color-a);
+}
+.text-link:hover{
+	text-decoration: underline;
+}
+.text-block{
+	display: block;
+}
+@media (max-width: 1080px){
+	.text{
+		max-width: 100%;
+	}
+	.text-f{
+		max-width: 60%;
+	}
+}

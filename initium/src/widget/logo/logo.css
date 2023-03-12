@@ -1,0 +1,35 @@
+.head{
+	z-index: 1;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding: var(--s);
+	backdrop-filter: blur(2px);
+}
+.logo{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+.logo-text{
+	overflow: hidden;
+	font-family: monospace;
+	font-variant: normal;
+	font-weight: bold;
+	-webkit-text-stroke: 1px var(--color-p);
+	color: var(--color-a);
+	font-size: var(--logo-size);
+}
+.logo-icon{
+	margin: 0 var(--s);
+	height: var(--logo-size);
+}
+@media (min-width: 700px){
+	.head{
+		padding-left: calc(var(--nav-size) + var(--xs));
+	}
+}

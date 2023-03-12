@@ -1,0 +1,66 @@
+.overlay{
+	z-index: 2;
+	position: fixed;
+	inset: var(--nav-size) 0 0 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.overlay-background{
+	position: absolute;
+	inset: 0;
+}
+.overlay-content{
+	position: relative;
+	border-radius: var(--l);
+	border: 1px solid var(--color-a);
+	padding: var(--l);
+	padding-top: var(--xxxl);
+	background-color: var(--color-p);
+	box-shadow: 0 0 10px var(--color-s-t);
+	width: fit-content;
+	height: fit-content;
+	min-width: 50%;
+	max-width: 70%;
+	max-height: calc(100% - var(--nav-size) - var(--xs));
+	min-height: 40%;
+	display: flex;
+	flex-direction: column;
+}
+.overlay-content>*{
+	width: 100%;
+}
+.overlay-overflow{
+	overflow-y: auto;
+}
+.overlay-head{
+	width: 100%;
+	top: 0;
+	left: 0;
+	padding: 0 var(--s);
+	border-radius: var(--l) var(--l) 0 0;
+	color: var(--color-a);
+	background-color: var(--color-p-t);
+	backdrop-filter: blur(4px);
+	position: absolute;
+	height: var(--xxxl);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.overlay-head>*{
+	height: 94%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+}
+
+@media (max-width: 1080px){
+	.overlay{
+		inset: 0 0 var(--nav-size) 0;
+	}
+	.overlay-content{
+		max-width: 95%;
+	}
+}

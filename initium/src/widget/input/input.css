@@ -1,0 +1,94 @@
+.label-input{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.label-input>label{
+	width: 30%;
+	word-wrap: break-word;
+}
+.label-input>*:not(label){
+	width: 70%;
+}
+.no-label>label{
+	width: 0%;
+	word-wrap: break-word;
+}
+.no-label>*:not(label){
+	width: 100%;
+}
+.radio-checkbox{
+	min-width: fit-content;
+}
+.radio-checkbox>label{
+	width: 80% !important;
+	word-wrap: normal;
+}
+.radio-checkbox>*:not(label){
+	width: 10% !important;
+}
+.input, [class*=input-]{
+	max-height: 100%;
+	max-width: 100%;
+	padding: var(--m);
+	border-radius: var(--m);
+	font-size: var(--xl);
+	margin: var(--l) var(--m);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid var(--color-s);
+}
+.input-active{
+	background-color: var(--color-a);
+	border: 1px solid var(--color-p);
+	color: var(--color-p);
+}
+.input-passive{
+	background-color: var(--color-p);
+	border: 1px solid var(--color-a);
+	color: var(--color-a);
+}
+.input:hover, [class*=input-]:hover{
+	background-color: var(--color-s);
+	color: var(--color-p);
+}
+.input:focus, [class*=input-]:focus{
+	background-color: var(--color-s);
+	color: var(--color-p);
+}
+textarea{
+	position: relative;
+	resize: none;
+	width: 90%;
+	height: 8rem;
+}
+.input-light{
+	background-color: var(--color-p);
+}
+.input-light:hover, .input-light:focus{
+	background-color: var(--color-a);
+}
+.toggle-password{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	max-width: fit-content;
+	height: fit-content;
+	margin: auto;
+	padding: var(--l);
+	border-radius: var(--l);
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url(/asset/icon/show.svg);
+}
+.toggle-password:hover{
+	background-color: var(--color-s);
+	color: var(--color-p);	
+}
+.file:hover{
+	border-radius: var(--l);
+	background-color: var(--color-a-t);
+}

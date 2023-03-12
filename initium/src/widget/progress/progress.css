@@ -1,0 +1,14 @@
+.progress{
+	margin-right: var(--l);
+	position: relative;
+	width: 100%;
+	height: var(--xs);
+	border: 1px solid var(--color-a);
+	background-color: var(--color-p-t);
+}
+.progress-bar{
+	height: 100%;
+	position: relative;
+	background-color: var(--color-a);
+	border-radius: var(--xxs);
+}

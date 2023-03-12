@@ -67,7 +67,7 @@
 	bottom: 0;
 	height: 20%;
 	width: 2000px;
-	background-image: url("/asset/image/waves.svg");
+	background-image: url("/initium/asset/image/waves.svg");
 	background-size: cover;
 	animation: clouds 10s alternate ease-in-out infinite;
 }

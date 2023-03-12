@@ -43,26 +43,26 @@ function Main(props){
 		<div className="space-max"/>
 		<Text type="title">get local / private solutions to automate tasks</Text>
 		<section className="flex-holder">
-			<Icon image="/asset/icon/time_managment.svg" title="time managment" onClick={() => {
+			<Icon image="/initium/asset/icon/time_managment.svg" title="time managment" onClick={() => {
 				mainContext.setOverlay([<Order key="order" main_function="time managment" target="local solution" type="bussiness"/>]);
 			}}>a solution that helps you manage your or your clients' time.</Icon>
-			<Icon image="/asset/icon/product_managment.svg" title="product managment" onClick={() => {
+			<Icon image="/initium/asset/icon/product_managment.svg" title="product managment" onClick={() => {
 				mainContext.setOverlay([<Order key="order" main_function="product_managment" target="local solution" type="bussiness"/>]);
 			}}>a solution that helps you manage your or your clients' products / storage.</Icon>
-			<Icon image="/asset/icon/database.svg" title="local database (files, text...)" onClick={() => {
+			<Icon image="/initium/asset/icon/database.svg" title="local database (files, text...)" onClick={() => {
 				mainContext.setOverlay([<Order key="order" main_function="local database" target="local solution" type="bussiness"/>]);
 			}}>get a local database to store any type of data.</Icon>
 		</section>
 		<div className="space-max"/>
 		<Text type="title">more services</Text>
 		<section className="flex-holder">
-			<Icon image="/asset/icon/seo.svg" title="SEO" onClick={() => {
+			<Icon image="/initium/asset/icon/seo.svg" title="SEO" onClick={() => {
 				mainContext.setOverlay([<Order key="order" target="SEO"/>]);
 			}}>optimise the appearance and relevance of your website.</Icon>
-			<Icon image="/asset/icon/maintenance.svg" title="Maintenance" onClick={() => {
+			<Icon image="/initium/asset/icon/maintenance.svg" title="Maintenance" onClick={() => {
 				mainContext.setOverlay([<Order key="order" target="Maintenance" type="bussiness"/>]);
 			}}>fix problems in your solution or improve it's quality.</Icon>
-			<Icon image="/asset/icon/phone.svg" title="Android / ios app creation" onClick={() => {
+			<Icon image="/initium/asset/icon/phone.svg" title="Android / ios app creation" onClick={() => {
 				mainContext.setOverlay([<Order key="order" target="App" type="bussiness"/>]);
 			}}>get an application for your bussiness.</Icon>
 		</section>
@@ -71,13 +71,13 @@ function Main(props){
 		<Text type="normal-big" style={{textAlign:"center"}}>there are 2 simple and fast forward ways to order, please choose based on your preference</Text>
 		<section className="flex-holder">
 			<Card title="guided" onClick={() => {
-				mainContext.setOverlay([<Order key="order"/>]);
+				mainContext.setOverlay([<Order key="order" type="guided"/>]);
 			}}>
 				Simply fill a forum of questions about your desired solutions. 
 				<div style={{color:"var(--color-a)"}}>click to continue</div>
 			</Card>
 			<Card title="attend a conference" onClick={() => {
-				mainContext.setOverlay([<Order key="order"/>]);
+				mainContext.setOverlay([<Order key="order" type="conference"/>]);
 			}}>
 				Either online or face-to-face depending on the area you live in. 
 				<div style={{color:"var(--color-a)"}}>click to continue</div>
@@ -100,10 +100,10 @@ function Main(props){
 		<section id="contact" style={{paddingTop:"20%"}}>
 			<Text type="title" style={{textAlign:"center", maxWidth:"100%"}}>Contact us</Text>
 			<section className="flex-holder">
-				<Icon style={{maxWidth:"fit-content"}} image="/asset/icon/seo.svg" className="light" title="email">enter.dev@gmail.com.</Icon>
-				<Icon style={{maxWidth:"fit-content"}} image="/asset/icon/seo.svg" className="light" title="instagram">enter_dev.</Icon>
-				<Icon style={{maxWidth:"fit-content"}} image="/asset/icon/seo.svg" className="light" title="facebook">enter_dev.</Icon>
-				<Icon style={{maxWidth:"fit-content"}} image="/asset/icon/seo.svg" className="light" title="Whatsapp">06xxxxxxxx.</Icon>
+				<Icon style={{maxWidth:"fit-content"}} image="/initium/asset/icon/seo.svg" className="light" title="email">agni.ihab@gmail.com.</Icon>
+				<Icon style={{maxWidth:"fit-content"}} image="/initium/asset/icon/seo.svg" className="light" title="instagram">enter_dev.</Icon>
+				<Icon style={{maxWidth:"fit-content"}} image="/initium/asset/icon/seo.svg" className="light" title="facebook">enter_dev.</Icon>
+				<Icon style={{maxWidth:"fit-content"}} image="/initium/asset/icon/seo.svg" className="light" title="Whatsapp">06xxxxxxxx.</Icon>
 				{
 				mainContext?.userData?.id ? 
 				<>

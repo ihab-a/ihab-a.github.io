@@ -71,7 +71,7 @@ function Input(props){
 									}
 								}}/>
 						<section style={{width:"70%", padding:"var(--xxl) 0"}}>
-						<label id={main_id.current + "-target"} className="file" style={{backgroundImage:`url(${props.src || "/asset/icon/upload.svg"})`,
+						<label id={main_id.current + "-target"} className="file" style={{backgroundImage:`url(${props.src || "/initium/asset/icon/upload.svg"})`,
 										backgroundSize:"contain",
 										backgroundPosition:"center left",
 										backgroundRepeat:"no-repeat",

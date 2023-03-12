@@ -218,7 +218,7 @@ function App(){
 		</section>
 		<Nav data={navData}/>
 		<Main/>
-		{/*<div id="waves"/>*/}
+		<div id="waves"/>
 		<Overlay data={overlay}/>
 	</MainContext.Provider>
 }

@@ -1,5 +1,5 @@
 .main{
-	background-image: url("/asset/image/background_fill.svg");
+	background-image: url("/initium/asset/image/background_fill.svg");
 	background-size: var(--xxl);
 	background-repeat: round;
 	position: relative;
@@ -22,7 +22,7 @@
 	height: 140%;
 	z-index: -20;
 	position: absolute;
-	background-image: url("/asset/image/top_background.png");
+	background-image: url("/initium/asset/image/top_background.png");
 	background-size: contain cover;
 	top: calc(-1 * var(--nav-size));
 	right: 0;

@@ -169,7 +169,7 @@ function History(){
 					map[elem.id] = !map[elem.id];
 					return map;
 				});
-			}}><img src="/asset/icon/expand_toggle.svg" style={{width:"100%", height:"100%", transform: expanded[elem.id] ? "rotate(-0.5turn)" : "none"}}/>
+			}}><img src="/initium/asset/icon/expand_toggle.svg" style={{width:"100%", height:"100%", transform: expanded[elem.id] ? "rotate(-0.5turn)" : "none"}}/>
 			</section>
 			</section>
 		})
